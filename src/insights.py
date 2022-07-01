@@ -1,4 +1,3 @@
-from curses.ascii import isdigit
 from src.jobs import read
 
 
