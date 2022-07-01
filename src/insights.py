@@ -176,13 +176,13 @@ def matches_salary_range(job: dict, salary: int):
     min_salary = job["min_salary"]
     max_salary = job["max_salary"]
 
-    if min_salary > max_salary:
+    if min_salary >= max_salary:
         raise ValueError("'min_salary' must be less than to 'max_salary'")
 
     return min_salary <= salary <= max_salary
 
 
-def filter_by_salary_range(jobs, salary):
+def filter_by_salary_range(jobs: list[dict], salary: int):
     """Filters a list of jobs by salary range
 
     Parameters
@@ -197,4 +197,16 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    filtered_jobs = []
+    response = False
+
+    for job in jobs:
+        try:
+            response = matches_salary_range(job, salary)
+        except ValueError:
+            pass
+        else:
+            if response:
+                filtered_jobs.append(job)
+
+    return filtered_jobs
