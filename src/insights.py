@@ -170,9 +170,6 @@ def matches_salary_range(job: dict, salary: int):
     if not all([isinstance(value, int) for value in job_values]):
         raise ValueError("'min_salary' and 'max_salary' must be integers")
 
-    if not all([value >= 0 for value in job_values]):
-        raise ValueError("'min_salary' and 'max_salary' must be pos. integers")
-
     if not isinstance(salary, int):
         raise ValueError("'salary' must be an integer")
 
