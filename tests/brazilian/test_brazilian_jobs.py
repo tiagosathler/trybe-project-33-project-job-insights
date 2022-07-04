@@ -1,4 +1,3 @@
-from inspect import trace
 from src.brazilian_jobs import read_brazilian_file
 from unittest.mock import mock_open, patch
 from pytest import fixture
