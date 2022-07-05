@@ -98,3 +98,10 @@ def test_sort_by_value_error(mock_jobs):
             sort_by(test_subject, "x")
     else:
         assert False
+    finally:
+        assert all(
+            [
+                test_subject[i] == mock_jobs[i]
+                for i in range(len(test_subject))
+            ]
+        )
